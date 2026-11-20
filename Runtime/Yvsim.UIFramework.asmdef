@@ -1,0 +1,7 @@
+{
+  "name": "Yvsim.UIFramework",
+  "references": [
+    "UnityEngine.UI",
+    "Yvsim.InspectorGroups"
+  ]
+}

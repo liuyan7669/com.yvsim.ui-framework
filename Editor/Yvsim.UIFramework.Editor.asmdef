@@ -1,0 +1,12 @@
+{
+  "name": "Yvsim.UIFramework.Editor",
+  "references": [
+    "Yvsim.UIFramework",
+    "UnityEngine.UI",
+    "Yvsim.InspectorGroups.Editor",
+    "Yvsim.InspectorGroups"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

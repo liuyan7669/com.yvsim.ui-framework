@@ -1,0 +1,18 @@
+{
+  "name": "Yvsim.UIFramework.Editor.Tests",
+  "references": [
+    "Yvsim.UIFramework",
+    "UnityEngine.UI",
+    "Yvsim.UIFramework.Tests.Fixtures"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ]
+}

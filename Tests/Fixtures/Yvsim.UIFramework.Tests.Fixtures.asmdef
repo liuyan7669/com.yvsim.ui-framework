@@ -1,0 +1,13 @@
+{
+  "name": "Yvsim.UIFramework.Tests.Fixtures",
+  "references": [
+    "Yvsim.UIFramework"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "UNITY_INCLUDE_TESTS"
+  ]
+}

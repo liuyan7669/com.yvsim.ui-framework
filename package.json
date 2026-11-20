@@ -1,0 +1,49 @@
+{
+  "name": "com.yvsim.ui-framework",
+  "version": "1.0.0",
+  "displayName": "UI Framework",
+  "description": "基于 Unity UGUI 的轻量界面管理框架，适合主界面、弹窗、提示、加载页和多层面板的统一生命周期管理。\n\n主要功能：\n1. 一键创建 UIRoot、UICamera、EventSystem、UICanvas 和六个 UI 层级。\n2. 启动时扫描现有 UIView，按面板层级自动校正父节点；按具体面板类型缓存并复用单个实例。\n3. 通过 UIManager 静态入口打开、查找、关闭、删除面板，支持条件筛选、批量关闭和排除指定类型。\n4. 通过 UIView 扩展面板生命周期，用 UIArgs 子类传递专用参数，并控制背景节点显隐。\n5. 提供新建面板、UI 锚点匹配当前四角的编辑器工具，以及常用面板脚本、Prefab 和字体示例。\n\n使用说明：用于 UGUI，不是 UI Toolkit 框架。依赖 Inspector Groups；Question Panel 示例另需 Config Loader/Object Utilities，Newbie Guide 示例另需 DOTween，这些是可选示例依赖。",
+  "unity": "2021.3",
+  "author": {
+    "name": "Yvsim"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.textmeshpro": "2.1.6",
+    "com.unity.ugui": "1.0.0",
+    "com.yvsim.inspector-groups": "1.0.0"
+  },
+  "keywords": [
+    "canvas",
+    "framework",
+    "ugui",
+    "ui"
+  ],
+  "samples": [
+    {
+      "displayName": "UI Framework Examples",
+      "description": "提供常用界面脚本、Prefab 与配套字体，供主界面、提示、标题、加载和等待等面板复用。导入 TMP Essential Resources 并创建 UI 系统后，将需要的 Prefab 放入相应层，由业务调用 UIManager；无预设业务主场景。",
+      "path": "Samples~/UI Framework"
+    },
+    {
+      "displayName": "Question Panel",
+      "description": "提供 UIQuestion 题目面板示例，展示题目与选项配置、交互和答案反馈。需先导入基础 UI 示例，并另外安装 Config Loader 与 Object Utilities；这些依赖不属于 UI Framework 核心依赖。",
+      "path": "Samples~/Question Panel"
+    },
+    {
+      "displayName": "Newbie Guide",
+      "description": "提供 UINewbieGuide 新手引导面板，演示点按、文字框选和拖放引导。需先导入基础 UI 示例，并安装、初始化 DOTween；依照示例 README 配置目标与参数后使用。",
+      "path": "Samples~/Newbie Guide"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuyan7669/com.yvsim.ui-framework.git"
+  },
+  "documentationUrl": "https://github.com/liuyan7669/com.yvsim.ui-framework#readme",
+  "changelogUrl": "https://github.com/liuyan7669/com.yvsim.ui-framework/blob/main/CHANGELOG.md",
+  "bugs": {
+    "url": "https://github.com/liuyan7669/com.yvsim.ui-framework/issues"
+  },
+  "licensesUrl": "https://github.com/liuyan7669/com.yvsim.ui-framework/blob/main/LICENSE.md"
+}
