@@ -1,0 +1,7 @@
+{
+  "name": "Yvsim.UIFramework.Samples",
+  "references": [
+    "Yvsim.UIFramework",
+    "UnityEngine.UI"
+  ]
+}

@@ -21,7 +21,7 @@
 
 也可把完整包目录（含 `.meta`）放入项目 `Packages/com.yvsim.ui-framework`，由 Unity 作为 embedded package 加载。
 
-本次源码以 1.0.0 为初始版本；Git 仓库、Tag 和 OpenUPM 发布须另行完成。在发布确认之前，请使用本地源码安装，不将网络包页面或历史版本视为此版本的安装来源。
+本次源码以 1.0.0 为初始版本；GitHub main 已提供 Git 安装入口；版本 Tag 与 OpenUPM 发布另行进行，不将历史包页面视为当前版本已上架。
 
 ## 创建 UI 根节点
 
@@ -126,19 +126,19 @@ UIManager.CloseAll(typeof(UIHome));
 
 ## 示例
 
-Package Manager 提供三个独立导入入口，源文件夹使用用途命名。Unity 导入后自动生成 `Assets/Samples/UI Framework/1.0.0/<示例显示名>/`。
+Package Manager 只提供一个 `Basic Usage` 示例。导入后打开 `BasicUsage.unity` 并进入 Play Mode，无需创建额外物体或绑定引用。
 
-| 示例 | 内容与前置条件 |
-| --- | --- |
-| UI Framework Examples | 基础面板、Prefab 与字体；只需本包声明的依赖。 |
-| Question Panel | `UIQuestion` 题目界面；先导入基础示例，并安装 Config Loader 与 Object Utilities。 |
-| Newbie Guide | `UINewbieGuide` 点按、文字框选和拖放引导；先导入基础示例，并安装、初始化 DOTween。 |
+1. `UIBasicDemo.Start` 调用 `UIManager.Open<UIBasicHome>()`，打开已在场景中注册的主面板。
+2. 点击 **Open Popup**，通过 `UIManager.Open(popupPrefab, args)` 创建弹窗并传入打开次数。
+3. 弹窗位于 `Popup` 层，`OnOpen` 读取 `UIArgs` 并刷新文字。
+4. 点击 **Close**，通过 `UIManager.Close<UIBasicPopup>()` 关闭面板，`OnClose` 回调更新主面板状态。
+5. 再次打开时复用同一实例，文字显示新的次数；可据此理解关闭与删除的区别。
 
-这些示例提供可复用面板资源，没有预设业务主场景。先导入 TMP Essential Resources、创建 UI 系统，把需要的 Prefab 放入其对应层，再由业务脚本调用 `UIManager.Open<T>(args)`，参数类型见各示例 README。可选依赖只作用于对应 Sample，不是核心包依赖。各示例 README 说明具体用法。
+示例只含场景、弹窗 Prefab、三个脚本、程序集定义和说明。使用 Unity 内置的 UGUI Text 字体，界面为英文以避免额外字库，代码说明和悬停提示为中文。不包含字体文件、TMP 资源、题目、新手引导、音频或其他包集成。详细步骤见 `Samples~/Basic Usage/README.md`。
 
 ## 测试
 
-包内 `Tests/Editor` 提供 EditMode 测试，覆盖 `UIManager` 的面板缓存与类型匹配、`UIView` 生命周期、`UIRoot` 层级配置。导入基础 Sample 后，还可运行示例空参数与等待面板关闭回调回归测试；未导入时这些测试会明确跳过。
+包内 `Tests/Editor` 提供 EditMode 测试，覆盖 `UIManager` 的面板缓存与类型匹配、`UIView` 生命周期、`UIRoot` 层级配置。示例行为可按 Basic Usage README 的步骤验证。
 
 通过 Package Manager 安装后，如需在 Test Runner 中显示包测试，请在项目的 `Packages/manifest.json` 根对象中添加 `testables` 字段（以下仅示意）：
 
@@ -156,9 +156,7 @@ Package Manager 提供三个独立导入入口，源文件夹使用用途命名�
 
 - Unity 2021.3 或更高版本
 - Unity UI（`com.unity.ugui`）
-- TextMesh Pro 2.1.6 或更高版本（示例界面使用，通过包依赖自动引入）
-- Config Loader、Object Utilities（仅 `UIQuestion` 示例需要）
-- DOTween（仅 `UINewbieGuide` 示例需要）
+- Inspector Groups（`com.yvsim.inspector-groups`）1.0.0
 
 ## 许可证
 
@@ -166,7 +164,7 @@ Package Manager 提供三个独立导入入口，源文件夹使用用途命名�
 
 ## Inspector 统一依赖
 
-本包依赖 `com.yvsim.inspector-groups` `1.0.0`，只声明字段、状态与业务操作。Inspector 的布局、样式和控件绘制由 Inspector Groups 提供；包内分组使用框架样式，用户新增分组默认使用普通样式。核心包不依赖其他 Yvsim 业务包，Samples 的明确可选组合除外。
+本包依赖 `com.yvsim.inspector-groups` `1.0.0`，只声明字段、状态与业务操作。Inspector 的布局、样式和控件绘制由 Inspector Groups 提供；包内分组使用框架样式，用户新增分组默认使用普通样式。除 Inspector Groups 外，核心包与基础示例均不依赖其他 Yvsim 业务包。
 
 ## 从 GitHub 安装
 
