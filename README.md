@@ -21,7 +21,7 @@
 
 也可把完整包目录（含 `.meta`）放入项目 `Packages/com.yvsim.ui-framework`，由 Unity 作为 embedded package 加载。
 
-本次源码以 1.0.0 为初始版本；GitHub main 已提供 Git 安装入口；版本 Tag 与 OpenUPM 发布另行进行，不将历史包页面视为当前版本已上架。
+本包提供本地源码、Git 和 OpenUPM 安装方式；固定版本使用 `1.0.0`，具体步骤见下文。
 
 ## 创建 UI 根节点
 
@@ -180,4 +180,22 @@ Package Manager 只提供一个 `Basic Usage` 示例。导入后打开 `BasicUsa
 https://github.com/liuyan7669/com.yvsim.ui-framework.git#main
 ```
 
-此地址指向 main 分支，当前包版本为 1.0.0。本次上传不创建版本 tag 或 GitHub Release，也不代表已在 OpenUPM 登记；Unity 官方依赖仍按 package.json 解析。
+此地址跟随 main 分支。需要固定 1.0.0 源码时，将 `#main` 改为 `#v1.0.0`；Unity 官方依赖仍按 package.json 解析。
+
+## 从 OpenUPM 安装
+
+在 Unity 的 Project Settings > Package Manager 中添加 Scoped Registry：
+
+- Name：OpenUPM
+- URL：`https://package.openupm.com`
+- Scope：`com.yvsim`
+
+然后在 Package Manager 中通过 Add package by name 输入 `com.yvsim.ui-framework`，版本填 `1.0.0`。也可从 My Registries 中选择本包。声明的 Yvsim 依赖由 OpenUPM 解析，Unity 官方依赖仍由 Unity 注册表提供。
+
+如果已安装 OpenUPM CLI，可在工程根目录执行：
+
+```sh
+openupm add com.yvsim.ui-framework@1.0.0
+```
+
+[OpenUPM 包页面](https://openupm.com/packages/com.yvsim.ui-framework/)
